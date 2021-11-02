@@ -1,0 +1,23 @@
+framework: net5.0
+storage: none
+
+source https://api.nuget.org/v3/index.json
+nuget FSharp.Core ~> 5
+nuget FSharp.Data ~> 4.0
+nuget Giraffe ~> 5.0
+nuget Saturn ~> 0.15
+nuget Felicity ~> 0.17
+nuget Jaeger ~> 1.0
+nuget Jaeger.Senders.Grpc
+nuget TaskBuilder.fs ~> 2.1
+
+// [ FAKE GROUP ]
+group Build
+    storage none
+    source https://api.nuget.org/v3/index.json
+    nuget Fake.DotNet.Cli
+    nuget Fake.IO.FileSystem
+    nuget Fake.Core.Target
+    nuget Fake.DotNet.AssemblyInfoFile
+    nuget Fake.Core.ReleaseNotes
+    nuget Fake.Tools.Git

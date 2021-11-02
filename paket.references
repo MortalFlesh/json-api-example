@@ -1,0 +1,8 @@
+FSharp.Core
+FSharp.Data
+Giraffe
+Saturn
+Felicity
+Jaeger
+Jaeger.Senders.Grpc
+TaskBuilder.fs

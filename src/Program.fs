@@ -31,8 +31,6 @@ module CurrentApplication =
                 logger.LogError(ex, "Unhandled exception while executing request")
                 returnUnknownError
             )
-            .UseRouting()
-            .UseJsonApiEndpoints<JsonApiContext>()
 
     let configureServices (currentApplication: CurrentApplication) (baseUrlForJsonApiResources: Uri) (services: IServiceCollection) =
         currentApplication.LoggerFactory.CreateLogger("CurrentApplication").LogDebug("Configure services ...")
@@ -40,15 +38,13 @@ module CurrentApplication =
             .AddSingleton(currentApplication.LoggerFactory)
             .AddLogging()
             .AddGiraffe()
-            .AddRouting()
             .AddJsonApi()
-                // .BaseUrl(baseUrlForJsonApiResources) //! uncomment this line to broke the application
+                .BaseUrl(baseUrlForJsonApiResources)
                 .GetCtxAsyncRes(
                     JsonApiContext.getCtx
                         currentApplication.Service
                         currentApplication.LoggerFactory
                 )
-                // .BaseUrl(baseUrlForJsonApiResources) //! uncomment this line to broke the application
                 .Add()
 
 [<EntryPoint>]
@@ -59,6 +55,8 @@ let main argv =
         choose [
             route "/metrics"
                 >=> warbler (Metrics.currentState currentApplication.Service >> text)
+
+            jsonApi<JsonApiContext>
 
             setStatusCode 404
                 >=> routef "/%s"

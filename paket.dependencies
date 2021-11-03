@@ -7,9 +7,6 @@ nuget FSharp.Data ~> 4.0
 nuget Giraffe ~> 5.0
 nuget Saturn ~> 0.15
 nuget Felicity ~> 0.17
-nuget Jaeger ~> 1.0
-nuget Jaeger.Senders.Grpc
-nuget TaskBuilder.fs ~> 2.1
 
 // [ FAKE GROUP ]
 group Build

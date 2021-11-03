@@ -14,17 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="src/Types.fs" />
-    <Compile Include="src/Application/Metrics.fs" />
+    <Compile Include="src/Domain.fs" />
     <Compile Include="src/JsonApi.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Include="src/Resource/Services.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="src/Application/Application.fs" />
     <Compile Include="src/Program.fs" />
   </ItemGroup>
 

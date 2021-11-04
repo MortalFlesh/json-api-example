@@ -42,13 +42,13 @@ module CurrentApplication =
             .AddGiraffe()
             .AddRouting()
             .AddJsonApi()
-                // .BaseUrl(baseUrlForJsonApiResources) //! uncomment this line to broke the application
                 .GetCtxAsyncRes(
                     JsonApiContext.getCtx
                         currentApplication.Service
                         currentApplication.LoggerFactory
                 )
-                // .BaseUrl(baseUrlForJsonApiResources) //! uncomment this line to broke the application
+                .BaseUrl(baseUrlForJsonApiResources)
+                .RelativeJsonApiRoot("/")
                 .Add()
 
 [<EntryPoint>]

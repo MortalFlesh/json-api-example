@@ -14,7 +14,7 @@ NUGET
       System.Net.Requests (>= 4.3)
       System.Net.Security (>= 4.3.2)
       System.Threading.Tasks.Extensions (>= 4.5.4)
-    Felicity (0.17.7)
+    Felicity (0.17.8)
       FSharp.Core (>= 5.0)
       FSharp.SystemTextJson (>= 0.17.4)
       Giraffe (>= 5.0)
